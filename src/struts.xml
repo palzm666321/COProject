@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="root" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="validate" class="cn.mldn.util.interceptor.ValidateInterceptor"/>
+			<interceptor-stack name="adminStack">
+				<!-- 要增加登录检测的拦截器（管理员标记：admin） -->
+				<interceptor-ref name="validate"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+			<interceptor-stack name="empStack">
+				<!-- 要增加登录检测的拦截器（普通雇员标记：emp） -->
+				<interceptor-ref name="validate"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+			<interceptor-stack name="managerStack">
+				<!-- 要增加登录检测的拦截器（项目经理标记）manager -->
+				<interceptor-ref name="validate"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="login.page">login.jsp</result>
+			<result name="forward.page">forward.jsp</result>
+			<result name="errors.page">errors.jsp</result>
+		</global-results>
+		
+	</package>
+</struts>    

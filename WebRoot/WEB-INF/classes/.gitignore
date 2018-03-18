@@ -1,2 +1,7 @@
+/struts.xml
+/struts.properties
+/ValidateInterceptor.class
+/ValidateUtil.class
 /cn/
-/协同办公系统 - 数据库创建脚本.sql
+/database.properties
+/log4j.properties
